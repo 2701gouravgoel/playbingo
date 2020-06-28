@@ -34,6 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Socket mSocket;
     private String name;
     private String pass;
+    private TextView login;
     private static Toast currentToast;
 
 
@@ -50,6 +51,15 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         Initializedfields();
+
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i= new Intent(RegisterActivity.this,LoginActivity.class);
+                startActivity(i);
+            }
+        });
 
         mSocket.on("userSuccess",onSuccess);
         mSocket.on("failed",onDuplicate);
@@ -154,6 +164,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void Initializedfields()
     {
+        login=(TextView)findViewById(R.id.already_have);
         username =(EditText) findViewById(R.id.regis_username);
         password =(EditText) findViewById(R.id.regis_pass);
         Submit =(Button) findViewById(R.id.regis_submit);

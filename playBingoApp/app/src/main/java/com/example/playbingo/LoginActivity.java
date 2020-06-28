@@ -2,6 +2,7 @@ package com.example.playbingo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -29,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     private Socket mSocket;
     private String name;
     private String pass;
+    private TextView regis;
     {
         try {
             mSocket = IO.socket("https://obscure-reaches-99859.herokuapp.com/");
@@ -41,6 +43,16 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         InitializedFields();
+
+
+        regis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i= new Intent(LoginActivity.this,RegisterActivity.class);
+                startActivity(i);
+            }
+        });
+
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,6 +143,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void InitializedFields()
     {
+        regis =(TextView)findViewById(R.id.new_one);
         username =(EditText)findViewById(R.id.login_username);
         password =(EditText)findViewById(R.id.login_pass);
         submit =(Button)findViewById(R.id.login_submit);
