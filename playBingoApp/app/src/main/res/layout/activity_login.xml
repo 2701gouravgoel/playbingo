@@ -1,9 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/login_username"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="100dp"
+        android:background="@drawable/border"
+        android:textStyle="italic"
+        android:textColor="#ffffff"
+        android:hint="old nickname"
+        android:textAlignment="center"
+        android:textColorHint="#ffffff"
+        android:padding="5dp"
+        android:textSize="30dp"
+        >
+    </EditText>
+    <EditText
+        android:id="@+id/login_pass"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/regis_username"
+        android:layout_marginLeft="100dp"
+        android:background="@drawable/border"
+        android:textStyle="italic"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        android:padding="5dp"
+        android:hint="old password"
+        android:textAlignment="center"
+        >
+    </EditText>
+    <Button
+        android:id="@+id/login_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/regis_pass"
+        android:layout_marginTop="60dp"
+        android:layout_centerInParent="true"
+        android:text="Move to bingo"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:padding="10dp"
+        android:background="@drawable/border2"
+        >
+    </Button>
+</RelativeLayout>

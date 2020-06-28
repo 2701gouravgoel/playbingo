@@ -27,7 +27,7 @@ public class UserDatabase extends SQLiteOpenHelper {
         //create table;
         String query = "CREATE TABLE "+DATABASE_TABLE+"("+KEY_ID+"INT PRIMARY KEY,"+
                 USER_NAME+" TEXT, "+
-                PASSWORD+" TEXT, "+")";
+                PASSWORD+" TEXT "+")";
         db.execSQL(query);
 
     }

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Looper;
 import android.text.TextUtils;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -113,6 +115,9 @@ public class RegisterActivity extends AppCompatActivity {
 
             UserDatabase db = new UserDatabase(RegisterActivity.this);
             db.addUser(name,pass);
+
+            Intent i = new Intent(RegisterActivity.this,MainActivity.class);
+            startActivity(i);
 
         }
     };
