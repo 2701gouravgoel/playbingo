@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -75,7 +76,6 @@ public class RegisterActivity extends AppCompatActivity {
                 else if(TextUtils.isEmpty(pass))
                 {
 
-                    Toast.makeText(RegisterActivity.this,"done",Toast.LENGTH_SHORT).show();
                     String message = "Enter Password";
 
                     LayoutInflater inflater = getLayoutInflater();
@@ -118,19 +118,31 @@ public class RegisterActivity extends AppCompatActivity {
     };
     private Emitter.Listener onDuplicate = new Emitter.Listener() {
         @Override
-        public void call(Object... args) {
+        public void call(final Object... args) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    int length = args.length;
+                    if(length == 0){
+                        return;
+                    }
+                    LayoutInflater inflater = getLayoutInflater();
+                    View layout = inflater.inflate(R.layout.custum_toast, null);
+                    TextView text = (TextView) layout.findViewById(R.id.meage);
 
+                    text.setText(args[0].toString());
+                    Toast toast = new Toast(RegisterActivity.this);
+                    toast.setDuration(Toast.LENGTH_SHORT);
+                    toast.setView(layout);
+                    toast.show();
+                }
+            });
+            int length = args.length;
+            if(length == 0)
+            {
 
-            LayoutInflater inflater = getLayoutInflater();
-            View layout = inflater.inflate(R.layout.custum_toast, null);
-            TextView text = (TextView) layout.findViewById(R.id.meage);
-
-            text.setText(args[0].toString());
-            Toast toast = new Toast(getApplicationContext());
-            toast.setDuration(Toast.LENGTH_SHORT);
-            toast.setView(layout);
-            toast.show();
-
+                return;
+            }
         }
     };
 
