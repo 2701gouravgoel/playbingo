@@ -21,6 +21,7 @@ android {
 
 dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     implementation 'com.github.nkzawa:socket.io-client:0.6.0'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
