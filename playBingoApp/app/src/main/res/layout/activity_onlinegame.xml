@@ -10,13 +10,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="165dp"
+        android:layout_height="140dp"
         android:orientation="horizontal"
         android:background="#575677"
         >
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="165dp"
-            android:layout_height="165dp"
+            android:layout_height="match_parent"
             android:src="@drawable/face1"
             >
 

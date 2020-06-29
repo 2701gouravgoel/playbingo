@@ -72,6 +72,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mSocket.connect();
 
+
+                JSONObject info = new JSONObject();
+                try {
+                    mSocket.connect();
+                    info.put("username", username);
+
+                    mSocket.emit("playOnlineRequest",info);} catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
                 final ProgressDialog progressBar = new ProgressDialog(MainActivity.this);
                 progressBar.setMessage("finding oponents");
                 progressBar.setTitle("Matching");
@@ -94,17 +104,8 @@ public class MainActivity extends AppCompatActivity {
                         toast.show();
 
                     }
-                }, 10000);
+                }, 20000);
 
-                JSONObject info = new JSONObject();
-                try {
-                    mSocket.connect();
-                    info.put("username", username);
-                    mSocket.emit("logininfo", info);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                mSocket.emit("playOnlineRequest",username);
             }
         });
 
