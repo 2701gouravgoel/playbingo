@@ -6,12 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
+    <ImageView
+        android:id="@+id/login_logo"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/logo2">
 
+    </ImageView>
     <EditText
+        android:layout_below="@id/login_logo"
         android:id="@+id/login_username"
         android:layout_width="200dp"
         android:layout_height="70dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="50dp"
         android:layout_marginLeft="100dp"
         android:background="@drawable/border"
         android:textStyle="italic"
@@ -59,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/login_submit"
         android:layout_marginLeft="100dp"
-        android:text="Already have nickname"
+        android:text="Create new nickname"
         android:textColor="#ff0000"
         android:textSize="25dp"
         android:layout_marginTop="20dp"

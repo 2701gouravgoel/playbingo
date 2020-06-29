@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -36,6 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
     private String pass;
     private TextView login;
     private static Toast currentToast;
+    private boolean backpressed=false;
 
 
 
@@ -161,6 +163,30 @@ public class RegisterActivity extends AppCompatActivity {
         }
     };
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+
+        moveTaskToBack(true);
+
+        if(backpressed)
+        {
+            Intent i = new Intent(Intent.ACTION_MAIN);
+            startActivity(i);
+        }
+        Toast.makeText(RegisterActivity.this,"press again",Toast.LENGTH_SHORT).show();
+        backpressed=true;
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                backpressed = false;
+            }
+        }, 3000);
+
+    }
 
     private void Initializedfields()
     {

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     private String name;
     private String pass;
     private TextView regis;
+    private boolean backpressed=false;
     {
         try {
             mSocket = IO.socket("https://obscure-reaches-99859.herokuapp.com/");
@@ -109,6 +111,13 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        moveTaskToBack(true);
     }
 
     private Emitter.Listener onLoginsuccss = new Emitter.Listener() {
